@@ -1,0 +1,7 @@
+Tic Tac Toe (AI)
+----------------
+
+  This tic-tac-toe game is a one player game. AI moves are determined randomly at the moment.
+
+  Will implement an intelligent AI which keeps track of each move the player makes and analyzes what the next effective move
+  would be. 
