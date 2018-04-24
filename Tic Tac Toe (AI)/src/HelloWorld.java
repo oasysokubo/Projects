@@ -79,7 +79,7 @@ public class TicTacToe extends JPanel {
 	}
 
 	// bot()
-	// Randomized move of the opponent
+	// Algorithm move of the opponent
 	private void bot() {
 		
 		// called to get best action
