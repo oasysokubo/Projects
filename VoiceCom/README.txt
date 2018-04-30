@@ -1,4 +1,4 @@
-VoiceCom
+#VoiceCom
 
 Voice recognition application using Sphinx4 library, able to understand and translate English speech into text and execute commands.
 
