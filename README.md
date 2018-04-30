@@ -1,7 +1,8 @@
 # Projects
-Selected Independent/Club Projects
 
-Project Table of Contents:
+## Selected Independent/Club Projects
+
+### Project Table of Contents:
 1) Basic Calculator               | October 14, 2017
 2) Interactive Chatbot            | November 17, 2017
 3) Tic Tac Toe (2 Player)         | December 9, 2017
