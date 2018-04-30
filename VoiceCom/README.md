@@ -2,19 +2,19 @@
 
 Voice recognition application using Sphinx4 library, able to understand and translate English speech into text and execute commands.
 
-Getting Started
+## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Built With
+## Built With
 
-CMUSphinx - Speech Recognition toolkit used
+[CMUSphinx](https://cmusphinx.github.io) - Speech Recognition toolkit used
 
-License
+## License
 
 This project is licensed under the GNU General Public License v3.0 - see the LICENSE.md file for details
 
-Update
+## Update
 
 April 29, 2018 - Developing an android application implementing this program to enable mobile usage.
 
