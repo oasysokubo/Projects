@@ -19,7 +19,7 @@ This project is licensed under the GNU General Public License v3.0
 
 April 29, 2018 - Developing an android application implementing this program to enable mobile usage.
 
-April 12, 2018 - Simple voice recognition able to understand basic English language. Will further make this application visual with Java GUI for desktop use.
+April 18, 2018 - Simple voice recognition able to understand basic English language. Will further make this application visual with Java GUI for desktop use.
 
 
 
