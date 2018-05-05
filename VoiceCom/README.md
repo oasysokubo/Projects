@@ -17,6 +17,8 @@ This project is licensed under the GNU General Public License v3.0
 
 ## Update
 
+May 5, 2018 - Implementing a speech synthesizer system allowing text-to-speech feedback.
+
 April 29, 2018 - Developing an android application implementing this program to enable mobile usage.
 
 April 18, 2018 - Simple voice recognition able to understand basic English language. Will further make this application visual with Java GUI for desktop use.
