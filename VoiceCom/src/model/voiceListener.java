@@ -20,16 +20,12 @@ public class voiceListener {
 	// split equation
 	private String[] splitEqn;
 	
-	// variables being parsed from String to integer
-	private double r1;
-	private double r2;
-	
 
 	// allowed numbers
 	List<String> allowedStrings = Arrays.asList("zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
 			"nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
 			"nineteen", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety", "hundred",
-			"thousand", "million", "billion", "trillion", "+", "-", "/", "*");
+			"thousand", "million", "billion", "trillion");
 	
 	String[] arithmeticEx = {"+", "-", "*", "/"};
 	
@@ -57,20 +53,21 @@ public class voiceListener {
 	 * @param s takes in String from parsed speech
 	 */
 	public void commandEx() {
+	
 		
 		// <math>
 		// function calls to specific math operation
 		if (speech.contains("divide")) {
-			System.out.printf("%s is %f\n", speech, calculate(speech));
+			System.out.printf("%s is %.2f\n", speech, calculate(speech));
 		}
 		else if(speech.contains("multipl") || speech.contains("times")) {
-			System.out.printf("%s is %f\n", speech, calculate(speech));
+			System.out.printf("%s is %.2f\n", speech, calculate(speech));
 		}
 		else if(speech.contains("add") || speech.contains("plus")) {
-			System.out.printf("%s is %f\n", speech, calculate(speech));
+			System.out.printf("%s is %.2f\n", speech, calculate(speech));
 		}
 		else if(speech.contains("minus") || speech.contains("subtract")) {
-			System.out.printf("%s is %f\n", speech, calculate(speech));
+			System.out.printf("%s is %.2f\n", speech, calculate(speech));
 		}
 		// </math>
 		
@@ -124,7 +121,6 @@ public class voiceListener {
 				
 				else if(s.contains("minus") || s.contains("subtract"))
 					return math(split(s, mathEx[i]), "-");
-				
 			}
 		}
 		return 0;
@@ -178,11 +174,15 @@ public class voiceListener {
 		
 		boolean isValidInput = true;
 		
-		if(split == null) {
+		// numParse results
+		double r1;
+		double r2;
+		
+		if(split.length != 2) {
 			System.err.println("Error: equation does not contain enough information");
 			System.exit(1);
 		}
-
+/*
 		for (String str : split) {
 			if (!allowedStrings.contains(str)) {
 				isValidInput = false;
@@ -190,8 +190,8 @@ public class voiceListener {
 				System.err.println(split[0] + " " + split[1]);
 				break;
 			}
-		}
-		/*
+		}*/
+		
 		if (isValidInput) {
 			// call getIndex see where key word occurs.
 			// Analyze unique statement and prompt for correct operation
@@ -213,10 +213,103 @@ public class voiceListener {
 			else if(v.equals("*")) {
 				return r1 * r2;
 			}
-		}*/
+		}
 		return 0;
 	}
+
+	/*
+	 * 
+	 * 
+	 * @param is the split speech
+	 */
+	public double numParse(String str) {
+		
+		// parsed number variables
+		int result = 0;
+		int finalResult = 0;
+		
+		if (str.contains("zero")) {
+			result += 0;
+		} if (str.contains("one")) {
+			result += 1;
+		} if (str.contains("two")) {
+			result += 2;
+		} if (str.contains("three")) {
+			result += 3;
+		} if (str.contains("four")) {
+			result += 4;
+		} if (str.contains("five")) {
+			result += 5;
+		} if (str.contains("six")) {
+			result += 6;
+		} if (str.contains("seven")) {
+			result += 7;
+		} if (str.contains("eight")) {
+			result += 8;
+		} if (str.contains("nine")) {
+			result += 9;
+		} if (str.contains("ten")) {
+			result += 10;
+		} if (str.contains("eleven")) {
+			result += 11;
+		} if (str.contains("twelve")) {
+			result += 12;
+		} if (str.contains("thirteen")) {
+			result += 13;
+		} if (str.contains("fourteen")) {
+			result += 14;
+		} if (str.contains("fifteen")) {
+			result += 15;
+		} if (str.contains("sixteen")) {
+			result += 16;
+		} if (str.contains("seventeen")) {
+			result += 17;
+		} if (str.contains("eighteen")) {
+			result += 18;
+		} if (str.contains("nineteen")) {
+			result += 19;
+		} if (str.contains("twenty")) {
+			result += 20;
+		} if (str.contains("thirty")) {
+			result += 30;
+		} if (str.contains("forty")) {
+			result += 40;
+		} if (str.contains("fifty")) {
+			result += 50;
+		} if (str.contains("sixty")) {
+			result += 60;
+		} if (str.contains("seventy")) {
+			result += 70;
+		} if (str.contains("eighty")) {
+			result += 80;
+		} if (str.contains("ninety")) {
+			result += 90;
+		} if (str.contains("hundred")) {
+			result *= 100;
+		} if (str.contains("thousand")) {
+			result *= 1000;
+			finalResult += result;
+			result = 0;
+		} if (str.contains("million")) {
+			result *= 1000000;
+			finalResult += result;
+			result = 0;
+		} if (str.contains("billion")) {
+			result *= 1000000000;
+			finalResult += result;
+			result = 0;
+		} if (str.contains("trillion")) {
+			result *= 1000000000000L;
+			finalResult += result;
+			result = 0;
+		}
+		
+		finalResult += result;
+		result = 0;
+		return finalResult;
+	}
 	
+	// Getters and Setters
 	
 	/*
 	 * @return index of where str occures in array
@@ -229,99 +322,6 @@ public class voiceListener {
 				return i;
 		}
 		return 0;
-	}
-	
-
-	/*
-	 * 
-	 * 
-	 * @param is the split speech
-	 */
-	public int numParse(String str) {
-		
-		int result = 0;
-		int finalResult = 0;
-		
-		
-		if (str.equalsIgnoreCase("zero")) {
-			result += 0;
-		} else if (str.equalsIgnoreCase("one")) {
-			result += 1;
-		} else if (str.equalsIgnoreCase("two")) {
-			result += 2;
-		} else if (str.equalsIgnoreCase("three")) {
-			result += 3;
-		} else if (str.equalsIgnoreCase("four")) {
-			result += 4;
-		} else if (str.equalsIgnoreCase("five")) {
-			result += 5;
-		} else if (str.equalsIgnoreCase("six")) {
-			result += 6;
-		} else if (str.equalsIgnoreCase("seven")) {
-			result += 7;
-		} else if (str.equalsIgnoreCase("eight")) {
-			result += 8;
-		} else if (str.equalsIgnoreCase("nine")) {
-			result += 9;
-		} else if (str.equalsIgnoreCase("ten")) {
-			result += 10;
-		} else if (str.equalsIgnoreCase("eleven")) {
-			result += 11;
-		} else if (str.equalsIgnoreCase("twelve")) {
-			result += 12;
-		} else if (str.equalsIgnoreCase("thirteen")) {
-			result += 13;
-		} else if (str.equalsIgnoreCase("fourteen")) {
-			result += 14;
-		} else if (str.equalsIgnoreCase("fifteen")) {
-			result += 15;
-		} else if (str.equalsIgnoreCase("sixteen")) {
-			result += 16;
-		} else if (str.equalsIgnoreCase("seventeen")) {
-			result += 17;
-		} else if (str.equalsIgnoreCase("eighteen")) {
-			result += 18;
-		} else if (str.equalsIgnoreCase("nineteen")) {
-			result += 19;
-		} else if (str.equalsIgnoreCase("twenty")) {
-			result += 20;
-		} else if (str.equalsIgnoreCase("thirty")) {
-			result += 30;
-		} else if (str.equalsIgnoreCase("forty")) {
-			result += 40;
-		} else if (str.equalsIgnoreCase("fifty")) {
-			result += 50;
-		} else if (str.equalsIgnoreCase("sixty")) {
-			result += 60;
-		} else if (str.equalsIgnoreCase("seventy")) {
-			result += 70;
-		} else if (str.equalsIgnoreCase("eighty")) {
-			result += 80;
-		} else if (str.equalsIgnoreCase("ninety")) {
-			result += 90;
-		} else if (str.equalsIgnoreCase("hundred")) {
-			result *= 100;
-		} else if (str.equalsIgnoreCase("thousand")) {
-			result *= 1000;
-			finalResult += result;
-			result = 0;
-		} else if (str.equalsIgnoreCase("million")) {
-			result *= 1000000;
-			finalResult += result;
-			result = 0;
-		} else if (str.equalsIgnoreCase("billion")) {
-			result *= 1000000000;
-			finalResult += result;
-			result = 0;
-		} else if (str.equalsIgnoreCase("trillion")) {
-			result *= 1000000000000L;
-			finalResult += result;
-			result = 0;
-		}
-		
-		finalResult += result;
-		result = 0;
-		return finalResult;
 	}
 	
 }
