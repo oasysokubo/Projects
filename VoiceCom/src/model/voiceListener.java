@@ -182,7 +182,7 @@ public class voiceListener {
 			System.err.println("Error: equation does not contain enough information");
 			System.exit(1);
 		}
-/*
+
 		for (String str : split) {
 			if (!allowedStrings.contains(str)) {
 				isValidInput = false;
@@ -190,7 +190,7 @@ public class voiceListener {
 				System.err.println(split[0] + " " + split[1]);
 				break;
 			}
-		}*/
+		}
 		
 		if (isValidInput) {
 			// call getIndex see where key word occurs.
