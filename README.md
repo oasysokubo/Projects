@@ -1,6 +1,4 @@
-**Projects**
-
-Selected Independent/Club Projects
+**Projects** - Club Projects
 
 **Project Table of Contents:**
 1) Basic Calculator               | October 14, 2017
