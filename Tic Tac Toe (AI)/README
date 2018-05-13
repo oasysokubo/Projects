@@ -6,9 +6,5 @@ which enables this game to be one player.
 
 Updates:
 
-  4/18/18
-  However, will soon implement an intelligent AI which keeps track of each move the player makes and analyzes what the next 
-  effective move would be. 
-  
   4/19/18
   Implemented AI capabilities with an algorithm which determines the most effective move.
